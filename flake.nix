@@ -37,6 +37,8 @@
                 pandas
                 jupyter
                 notebook
+                scikit-learn
+                nltk
               ]);
           };
         }
