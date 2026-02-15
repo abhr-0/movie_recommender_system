@@ -27,19 +27,19 @@
         { pkgs }:
         {
           default = pkgs.mkShellNoCC {
-            packages =
-              with pkgs;
-              [
-                python314
-              ]
-              ++ (with python314Packages; [
-                numpy
-                pandas
-                jupyter
-                notebook
-                scikit-learn
-                nltk
-              ]);
+            packages = with pkgs; [
+              (python3.withPackages (
+                ps: with ps; [
+                  numpy
+                  pandas
+                  scikit-learn
+                  nltk
+                  python-dotenv
+                ]
+              ))
+              jupyter
+              streamlit
+            ];
           };
         }
       );
